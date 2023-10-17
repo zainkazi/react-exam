@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Table from "./Table";
 import sampleData from "./data/data";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState(sampleData);
@@ -9,10 +10,6 @@ function App() {
   const [cityValue, setCityValue] = useState("");
   const [occupationValue, setOccupationValue] = useState("");
   const [filteredData, setFilteredData] = useState(data);
-
-  // useEffect(() => {
-  // setFilteredData(data.filter((p) => p.age == ageValue));
-  // }, [nameValue, ageValue]);
 
   const filterData = () => {
     setFilteredData(
@@ -50,53 +47,54 @@ function App() {
     setOccupationValue("");
   };
 
-  // console.log(sampleData);
   return (
     <div>
       {/* filters */}
-      <label>Name</label>
-      <input type="text" onChange={filterByName} value={nameValue} />
+      <div className="searchInputs">
+        <label>Name</label>
+        <input type="text" onChange={filterByName} value={nameValue} />
 
-      <label>Age</label>
-      <input type="text" onChange={filterByAge} value={ageValue} />
+        <label>Age</label>
+        <input type="text" onChange={filterByAge} value={ageValue} />
 
-      <label>Select a City</label>
-      <select name="city" onChange={filterByCity} value={cityValue}>
-        <option value=""></option>
-        <option value="New York">New York</option>
-        <option value="San Francisco">San Fransisco</option>
-        <option value="Chicago">Chicago</option>
-        <option value="Los Angeles">Los Angeles</option>
-        <option value="Houston">Houston</option>
-        <option value="Miami">Miami</option>
-        <option value="Seattle">Seattle</option>
-        <option value="Boston">Boston</option>
-        <option value="Denver">Denver</option>
-        <option value="Atlanta">Atlanta</option>
-      </select>
+        <label>Select a City</label>
+        <select name="city" onChange={filterByCity} value={cityValue}>
+          <option value=""></option>
+          <option value="New York">New York</option>
+          <option value="San Francisco">San Fransisco</option>
+          <option value="Chicago">Chicago</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Houston">Houston</option>
+          <option value="Miami">Miami</option>
+          <option value="Seattle">Seattle</option>
+          <option value="Boston">Boston</option>
+          <option value="Denver">Denver</option>
+          <option value="Atlanta">Atlanta</option>
+        </select>
 
-      <label>Select Occupation</label>
-      <select
-        name="occupation"
-        onChange={filterByOccupation}
-        value={occupationValue}
-      >
-        <option value=""></option>
-        <option value="Engineer">Engineer</option>
-        <option value="Designer">Designer</option>
-        <option value="Accountant">Accountant</option>
-        <option value="Teacher">Teacher</option>
-        <option value="Doctor">Doctor</option>
-        <option value="Artist">Artist</option>
-        <option value="Softwar Eengineer">Software Engineer</option>
-        <option value="Lawyer">Lawyer</option>
-        <option value="Marketing Manager">Marketing Manager</option>
-        <option value="Entrepreneur">Entrepreneur</option>
-      </select>
+        <label>Select Occupation</label>
+        <select
+          name="occupation"
+          onChange={filterByOccupation}
+          value={occupationValue}
+        >
+          <option value=""></option>
+          <option value="Engineer">Engineer</option>
+          <option value="Designer">Designer</option>
+          <option value="Accountant">Accountant</option>
+          <option value="Teacher">Teacher</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Artist">Artist</option>
+          <option value="Softwar Eengineer">Software Engineer</option>
+          <option value="Lawyer">Lawyer</option>
+          <option value="Marketing Manager">Marketing Manager</option>
+          <option value="Entrepreneur">Entrepreneur</option>
+        </select>
 
-      <button onClick={filterData}>Search</button>
+        <button onClick={filterData}>Search</button>
 
-      <button onClick={resetData}>Reset</button>
+        <button onClick={resetData}>Reset</button>
+      </div>
 
       <Table data={filteredData} />
     </div>

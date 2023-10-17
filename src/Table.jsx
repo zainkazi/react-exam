@@ -3,7 +3,7 @@ import TableRow from "./TableRow";
 const Table = ({ data }) => {
   return (
     <table>
-      <tr>
+      <tr className="headings">
         <th>Id</th>
         <th>Name</th>
         <th>Age</th>
