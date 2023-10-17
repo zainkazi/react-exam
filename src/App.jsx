@@ -42,7 +42,13 @@ function App() {
     setOccupationValue(e.target.value);
   };
 
-  const resetData = () => {};
+  const resetData = () => {
+    setFilteredData(data);
+    setNameValue("");
+    setAgeValue("");
+    setCityValue("");
+    setOccupationValue("");
+  };
 
   // console.log(sampleData);
   return (
@@ -55,11 +61,11 @@ function App() {
       <input type="text" onChange={filterByAge} value={ageValue} />
 
       <label>Select a City</label>
-      <select name="city" onChange={filterByCity}>
+      <select name="city" onChange={filterByCity} value={cityValue}>
         <option value=""></option>
         <option value="New York">New York</option>
         <option value="San Francisco">San Fransisco</option>
-        <option value="Chicago">Chicage</option>
+        <option value="Chicago">Chicago</option>
         <option value="Los Angeles">Los Angeles</option>
         <option value="Houston">Houston</option>
         <option value="Miami">Miami</option>
@@ -70,7 +76,11 @@ function App() {
       </select>
 
       <label>Select Occupation</label>
-      <select name="occupation" onChange={filterByOccupation}>
+      <select
+        name="occupation"
+        onChange={filterByOccupation}
+        value={occupationValue}
+      >
         <option value=""></option>
         <option value="Engineer">Engineer</option>
         <option value="Designer">Designer</option>
